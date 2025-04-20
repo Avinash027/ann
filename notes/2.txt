@@ -1,0 +1,82 @@
+🧠 Practical 2: Generate AND-NOT Function using McCulloch-Pitts Neural Network (CO1 15)
+Problem Statement:
+Generate AND-NOT logic function using McCulloch-Pitts neuron model in Python.
+
+🔍 Theory in Hinglish (Point-wise + Detailed):
+McCulloch-Pitts Model kya hota hai?
+
+Yeh neural network ka simplest model hai.
+
+Neurons ko binary input dete hain (0 ya 1), aur output bhi binary hota hai.
+
+Sirf basic logical operations jese AND, OR, NOT, AND-NOT define karne ke liye use hota hai.
+
+Concept Used: Threshold-based decision making.
+
+McCulloch-Pitts Neuron ke Components:
+
+Inputs (xi): Neuron ke input (0 ya 1).
+
+Weights (wi): Har input ka weight (in McCulloch-Pitts, mostly 1 ya -1 fix hota hai).
+
+Summation: sabhi (xi * wi) ka sum hota hai.
+
+Threshold (θ): Agar sum ≥ threshold, output = 1; warna 0.
+
+Output (y): Final binary output after applying threshold.
+
+AND-NOT Logic Function:
+
+Logic: A AND NOT B
+
+Truth Table:
+
+
+A	B	Output (A AND NOT B)
+0	0	0
+0	1	0
+1	0	1
+1	1	0
+Weights & Threshold Design:
+
+Assign w1 = 1 to A
+
+Assign w2 = -1 to B
+
+Threshold θ = 1
+
+Working:
+
+Sum = A * 1 + B * (-1)
+
+Output = 1 only when A = 1 and B = 0 → sum = 1 → satisfies threshold.
+
+Python Concepts Used:
+
+for loop to test each pair of inputs
+
+Simple if condition to check threshold logic
+
+Use of numpy arrays (optional, for matrix version)
+
+Basic print statements for output
+
+Output Expectations:
+
+Input: All 4 combinations of A and B.
+
+Output: Correct value of A AND NOT B for each input pair.
+
+Important Neural Concepts Applied:
+
+Binary threshold neuron
+
+Logic gate emulation using neural computation
+
+Understanding of weight assignment to negate one input
+
+Real-Life Applications (Logical to Neural):
+
+Simple logical neurons jese McCulloch-Pitts ka use digital circuits simulation, early pattern recognition me hota tha.
+
+Conceptual base ke liye important hai before moving to Perceptron and MLP.

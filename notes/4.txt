@@ -1,0 +1,72 @@
+4. Write a Python Program using Adaline Neural Network to recognize even and odd numbers. Given numbers are in ASCII form 0 to 9.
+(CO1 - 22)
+
+Theory (Detailed Hinglish Point-wise):
+
+Adaline Neural Network kya hota hai?
+
+ADALINE ka full form hai Adaptive Linear Neuron.
+
+Ye ek single-layer neural network hota hai jo linear activation function use karta hai.
+
+ADALINE aur Perceptron dono similar hain, par main difference hai ki ADALINE weight update ke liye actual output nahi, balki net input (weighted sum) use karta hai.
+
+Input representation - ASCII form
+
+0 se 9 tak ke digits ko unke ASCII pattern ke form mein liya jata hai (5x3 matrix format).
+
+Har digit ko flatten karke ek 1D array banaya jata hai jisme sirf 0 (invalid pixel) aur 1 (valid pixel) hote hain.
+
+Even aur Odd ka Classification
+
+Labels assign kiye jate hain: Even = 0, Odd = 1
+
+ADALINE model ko training ke dauraan bataya jata hai ki har digit even hai ya odd.
+
+Working of Adaline
+
+Net Input Calculation:
+net_input = dot(X, weights) + bias
+
+Activation Function: Linear hota hai (output = net input)
+
+Error Calculation:
+error = expected_output - net_input
+
+Weight Update Rule (Gradient Descent based):
+weights = weights + learning_rate * X.T * error
+bias = bias + learning_rate * sum(error)
+
+Training Process
+
+Sabhi training samples ke liye:
+
+Net input calculate hota hai.
+
+Error find kiya jata hai.
+
+Weights aur bias update kiya jata hai.
+
+Ye process multiple epochs tak repeat hoti hai jab tak error minimum na ho jaye.
+
+Why use Adaline instead of Perceptron?
+
+Perceptron sirf binary threshold-based output deta hai.
+
+Adaline continuous error ke basis par weights ko fine-tune karta hai, jisse training smoother hoti hai.
+
+Adaline ka learning method gradient descent par based hota hai, jo mathematically robust hai.
+
+Testing Phase
+
+Jab naya digit diya jata hai:
+
+ADALINE net input calculate karta hai.
+
+Agar output threshold se chhota hai, to classify as even (0), warna odd (1).
+
+Conclusion
+
+Adaline neural network, ASCII input patterns ke basis par digits ko even ya odd classify karne ke liye kaafi accurate aur stable model hai.
+
+Ye supervised learning ka real-world implementation hai, jisme linear classification problem solve hoti hai.

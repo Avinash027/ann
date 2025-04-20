@@ -1,0 +1,125 @@
+8. Write a Python program to implement ART1 (Adaptive Resonance Theory 1).
+
+Theory (Detailed Hinglish Point-wise):
+
+Introduction to ART1:
+
+ART1 (Adaptive Resonance Theory 1) ek unsupervised learning algorithm hai, jo neural network architecture pe based hai. Yeh network pattern recognition aur clustering problems ke liye use hota hai.
+
+ART1 ko Hebbian learning ke principles pe design kiya gaya hai aur iska main goal hai ki wo new patterns ko old patterns ke saath match kar sake aur unko update kar sake bina old information ko forget kiye.
+
+Iska main feature hai vigilance parameter, jo network ko decide karne mein madad karta hai ki kisi pattern ko existing category mein add kiya jaye ya ek new category banai jaye.
+
+Basic Concept of ART1:
+
+ART1 mein neurons binary values (0 or 1) ke liye represent karte hain.
+
+Input vector ko complement code mein convert kiya jata hai aur input space ko two-dimensional space mein represent kiya jata hai.
+
+Yeh system clusters banata hai, jisme similar patterns ek hi cluster mein group hote hain.
+
+Working of ART1:
+
+Matching Phase: Input vector ko sabhi categories (clusters) ke saath match kiya jata hai, aur sabse similar category ko choose kiya jata hai.
+
+Vigilance Test: Agar matching score ek threshold (vigilance) se zyada hai, to selected category update hoti hai; agar nahi, to new category create hoti hai.
+
+Update Phase: Agar match mil gaya to existing weights ko update kiya jata hai, otherwise new cluster create hota hai.
+
+Resetting: Agar matching phase mein koi match nahi milta, to current weights ko reset kar diya jata hai.
+
+Vigilance Parameter:
+
+Vigilance ek threshold parameter hota hai, jo yeh decide karta hai ki kisi pattern ko existing cluster mein add kiya jaye ya nahi.
+
+Agar matching score vigilance value se zyada hota hai, to wo pattern existing category mein add ho jata hai, otherwise ek new category create hoti hai.
+
+High vigilance value ka matlab hai ki only highly similar patterns hi ek cluster mein aayenge, aur low vigilance value ka matlab hai ki broad clustering hogi, jisme loosely related patterns ek cluster mein aa sakte hain.
+
+Training Process of ART1:
+
+Step 1: Har input pattern ko complement code mein convert karna hota hai.
+
+Step 2: Matching phase mein, sabhi existing categories ko input pattern se match kiya jata hai. Yeh match score calculate kiya jata hai, jisme inner product or similarity score ka use hota hai.
+
+Step 3: Agar kisi category ka match score vigilance value se zyada hota hai, to wo category selected hoti hai aur category weights ko update kiya jata hai using min operation (new weights = min(input, category weights)).
+
+Step 4: Agar matching category nahi milti, to ek nayi category create ki jati hai.
+
+Step 5: Yeh process tab tak repeat hota hai jab tak input patterns successfully category mein assign nahi ho jate.
+
+Matching Score Calculation:
+
+Matching score ko calculate karne ka formula hota hai:
+
+score
+(
+𝑖
+)
+=
+∑
+min
+⁡
+(
+𝑥
+,
+𝑤
+𝑖
+)
+∑
+𝑥
+score(i)= 
+∑x
+∑min(x,w 
+i
+​
+ )
+​
+ 
+Jahaan:
+
+𝑥
+x input vector hai
+
+𝑤
+𝑖
+w 
+i
+​
+  category weights hain.
+
+Yeh formula check karta hai ki input vector aur category vector ke beech kitni similarity hai.
+
+Category Weight Update:
+
+Category weights update karne ke liye input vector aur selected category vector ke corresponding elements ka minimum liya jata hai.
+
+Isse jo weights update hote hain, woh more similar ho jate hain to the input vector.
+
+Application of ART1:
+
+ART1 algorithm ka use unsupervised learning ke liye hota hai, jisme system automatically patterns ko categorize karta hai.
+
+Yeh data clustering aur pattern recognition problems mein kaafi useful hai. Jaise ki image recognition, speech recognition, etc.
+
+Advantages of ART1:
+
+Memory retention: ART1 old patterns ko forget nahi karta aur naye patterns ko add karta hai bina purane patterns ke distortion ke.
+
+Online learning: ART1 ek online learning system hai, yani ki jab bhi koi new pattern aata hai, system usko accept kar leta hai bina previous training data ko change kiye.
+
+Pattern recognition capability: ART1 is capable of performing pattern recognition even if the input is noisy or incomplete.
+
+Limitations of ART1:
+
+Vigilance sensitivity: Agar vigilance parameter bahut high ya low hota hai, to network ki performance pe effect padta hai. High vigilance se zyada clusters ban jate hain, aur low vigilance se patterns broadly cluster ho jate hain.
+
+Fixed input space: ART1 mein input vector fixed size ka hona chahiye, aur kisi bhi naye input size ko accommodate karna thoda mushkil hota hai.
+
+Limited to binary input: ART1 binary input data ke liye zyada suitable hota hai, continuous data ko handle karne ke liye modifications ki zarurat hoti hai.
+
+Conclusion:
+
+ART1 ek powerful algorithm hai jo unsupervised learning aur pattern clustering mein use hota hai. Iska main feature resonance mechanism hai jo naye patterns ko effectively store karne aur retrieve karne mein madad karta hai.
+
+Yeh theory aur practical se humein pattern recognition, data clustering, aur neural networks ke concepts ko achhe se samajhne mein madad milti hai.

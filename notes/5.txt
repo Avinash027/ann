@@ -1,0 +1,93 @@
+Write a Python program to recognize the numbers 0, 1, 2, 3, 9. A 5x3 matrix forms the numbers. For any valid point it is taken as 1 and invalid point it is taken as 0. The net has to be trained to recognize all the numbers and when the test data is given, the network has to recognize the particular number using MLPClassifier.
+(CO2 - 1)
+
+Theory (Detailed Hinglish Point-wise):
+
+Objective kya hai is practical ka?
+
+Hume ek Neural Network (Multi-layer Perceptron - MLP) train karna hai jise 5x3 matrix format mein diye gaye numbers (0, 1, 2, 3, 9) recognize karne aayen.
+
+Ye matrix binary hoti hai: 1 → valid pixel, 0 → invalid pixel.
+
+Data Representation
+
+Har number ko ek 5x3 matrix (15 elements) ke form mein represent kiya gaya hai
+
+Is matrix ko flatten karke ek 1D array bana diya jata hai: 5x3 = 15 features
+
+Example:
+
+csharp
+Copy
+Edit
+0:
+[1,1,1,
+ 1,0,1,
+ 1,0,1,
+ 1,0,1,
+ 1,1,1]
+Labels and Classification
+
+Target labels: [0, 1, 2, 3, 9]
+
+Supervised learning model ka use hota hai jisme features (15 binary values) aur target (digit) diya jata hai
+
+Why MLPClassifier?
+
+MLPClassifier scikit-learn ka ek pre-built class hai multilayer perceptron ke liye
+
+Ye ek feedforward neural network hota hai jo backpropagation use karke weights ko optimize karta hai
+
+Ye problem classification hai (digit identify karna), isliye MLPClassifier bilkul suitable hai
+
+MLPClassifier ke Important Parameters
+
+hidden_layer_sizes=(10,): 1 hidden layer with 10 neurons
+
+activation='relu': ReLU function se non-linearity introduce hoti hai
+
+solver='adam': Optimization ke liye Adam algorithm use hoti hai
+
+max_iter=1000: Network ko 1000 epochs tak train kiya jata hai
+
+random_state=42: Repeatable results ke liye seed fix karna
+
+Model Training
+
+fit(X, y) function call karke model ko train kiya jata hai
+
+Training ke dauraan model weight ko adjust karta hai jisse input-output mapping seekh jaye
+
+Testing / Prediction
+
+Ek unknown digit ko 5x3 matrix mein input diya jata hai
+
+Flatten karne ke baad use predict() function se output digit milta hai
+
+Network trained hone ke baad correct prediction karta hai for trained patterns
+
+Working Example
+
+Train set: Digits 0, 1, 2, 3, 9 (5x3 format)
+
+Test set: Same format ke noisy or exact digits
+
+Output: Model identifies the number and prints the predicted label
+
+Why it works?
+
+MLPClassifier non-linear decision boundaries bana sakta hai
+
+Iska layered structure help karta hai feature abstraction aur complex pattern recognition mein
+
+ReLU + Adam optimizer + multiple iterations model ko efficient banate hain
+
+Conclusion
+
+Ye practical ek digit recognition system ka base version hai
+
+Concepts used: matrix flattening, supervised learning, MLPClassifier, ReLU activation, training-testing split
+
+Aise hi approach large-scale handwritten digit recognition (MNIST) mein bhi use hota hai
+
+

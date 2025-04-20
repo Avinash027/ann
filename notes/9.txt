@@ -1,0 +1,194 @@
+9. Write a Python program to design a Hopfield Network which stores 4 vectors.
+
+Theory (Detailed Hinglish Point-wise):
+
+Introduction to Hopfield Network:
+
+Hopfield Network ek recurrent neural network hai jo associative memory ka kaam karta hai. Iska main goal hai ki network input vector ko retrieve kar sake jo uske memory me store hai.
+
+Hopfield network ko binary classification ke liye use kiya jata hai. Yani ki, input ko -1 aur +1 ke form mein represent kiya jata hai.
+
+Hopfield network ko content addressable memory bhi kaha jata hai, kyunki aap kisi part of data ko de kar poora pattern retrieve kar sakte ho.
+
+Basic Structure of Hopfield Network:
+
+Isme neurons hote hain jo binary values (-1, 1) store karte hain.
+
+Har neuron ka apna ek state hota hai. Ye states -1 ya 1 ho sakte hain.
+
+Hopfield network mein fully connected layers hoti hain, par koi self-connection nahi hota, yani kisi neuron ka apne aap se koi connection nahi hota.
+
+Training the Hopfield Network:
+
+Hebbian learning rule ka use karke network ko train kiya jata hai. Training mein patterns ko store kiya jata hai. Yani agar humare pass kuch vectors hain, to network unko apne weight matrix mein store kar lega.
+
+Weight matrix ka formula hota hai:
+
+𝑊
+=
+∑
+𝑖
+=
+1
+𝑁
+(
+𝑝
+𝑖
+⋅
+𝑝
+𝑖
+𝑇
+)
+W= 
+i=1
+∑
+N
+​
+ (p 
+i
+​
+ ⋅p 
+i
+T
+​
+ )
+Jahaan:
+
+𝑊
+W weight matrix hai
+
+𝑝
+𝑖
+p 
+i
+​
+  training patterns hain.
+
+𝑝
+𝑖
+𝑇
+p 
+i
+T
+​
+  unka transpose hai.
+
+Recall Process (Pattern Retrieval):
+
+Jab aap ek noisy pattern input dete ho, to Hopfield network retrieved pattern ko apne weights aur training patterns se match karne ki koshish karta hai.
+
+Pattern ko iterative process ke through retrieve kiya jata hai. Matlab, state ko update karte hue network apna output calculate karta hai.
+
+Yeh process convergence tak jaata hai jab tak network correct pattern ko recognize na kar le.
+
+Energy Function:
+
+Hopfield network ka ek unique feature uska energy function hai. Har state ke liye ek energy value hoti hai.
+
+Network ka goal hota hai energy ko minimum karna. Jab energy minimum hoti hai, tab network apne stable state mein hota hai, jo ki stored pattern hai.
+
+Energy function ka formula hota hai:
+
+𝐸
+=
+−
+1
+2
+∑
+𝑖
+,
+𝑗
+𝑊
+𝑖
+𝑗
+𝑝
+𝑖
+𝑝
+𝑗
+E=− 
+2
+1
+​
+  
+i,j
+∑
+​
+ W 
+ij
+​
+ p 
+i
+​
+ p 
+j
+​
+ 
+Yahan 
+𝑊
+𝑖
+𝑗
+W 
+ij
+​
+  weight matrix ka element hai aur 
+𝑝
+𝑖
+p 
+i
+​
+  pattern ki state hai.
+
+Steps Involved in Implementing the Network:
+
+Step 1 (Initialization): Sabse pehle network ka weight matrix initialize kiya jata hai using training patterns.
+
+Step 2 (Training): Network ko training vectors provide kiye jate hain. Har pattern ko use karke weight matrix ko update kiya jata hai.
+
+Step 3 (Recalling): Jab ek noisy pattern input diya jata hai, to network apne stored patterns ko match karta hai aur correct pattern ko retrieve karta hai.
+
+Example of Hopfield Network with 4 Patterns:
+
+Humare paas 4 patterns hain, jinhe Hopfield network ko store karna hai:
+
+less
+Copy
+Edit
+Pattern 1: [1, -1, 1, -1, 1, -1]
+Pattern 2: [-1, 1, -1, 1, -1, 1]
+Pattern 3: [1, 1, -1, -1, 1, 1]
+Pattern 4: [-1, -1, 1, 1, -1, -1]
+Hopfield network ko in patterns ko train karna hoga aur jab ek noisy pattern input diya jayega, to network ko correct pattern retrieve karna hoga.
+
+Noisy Pattern Retrieval:
+
+Jab ek noisy pattern input diya jata hai (jisme kuch values incorrect ho sakti hain), network apne trained weights ke basis par us pattern ko correct karke output deta hai.
+
+Example: Agar noisy input [1, -1, 1, -1, -1, -1] diya jata hai, to Hopfield network usse apne trained patterns se match karke retrieved pattern output karega.
+
+Stability and Convergence:
+
+Stability ka matlab hai ki ek baar pattern retrieve hone ke baad, network ka state stable ho jata hai aur woh pattern converge ho jata hai.
+
+Agar network ko multiple noisy inputs diye jaye, tab bhi yeh apne trained patterns se closest match retrieve karega.
+
+Limitations:
+
+Hopfield network only binary patterns ko store kar sakta hai.
+
+Agar training patterns too similar hote hain, to network confused ho sakta hai aur pattern retrieval accurately nahi kar pata.
+
+Storage capacity limited hoti hai; typically it can store only about 
+𝑁
+/
+2
+N/2 patterns, where 
+𝑁
+N is the number of neurons in the network.
+
+Conclusion:
+
+Hopfield network ek powerful technique hai associative memory ko model karne ke liye.
+
+Yeh network noisy patterns ko clean karne aur stored patterns ko recall karne mein kaafi effective hai.
+
+Is practical ne humein Hopfield Network ki working ko samajhne mein madad ki aur associative memory systems ke real-world applications ko explore karne ka mauka diya.

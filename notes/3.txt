@@ -1,0 +1,89 @@
+✅ Practical 3: Write a Python Program using Perceptron Neural Network to recognize even and odd numbers. Given numbers are in ASCII form 0 to 9
+🎯 Objective:
+Perceptron neural network ka use karke digits 0-9 ko unke ASCII form mein identify karna.
+
+Network ko train karna hai taaki woh bata sake ki koi digit even hai ya odd.
+
+📘 Concepts Covered:
+ASCII Encoding:
+
+Har digit (0-9) ko ASCII format mein represent kiya jata hai.
+
+Example: '0' = 48, '1' = 49, ... '9' = 57
+
+Is representation ko binary (8-bit) form mein convert kiya jaata hai input layer ke liye.
+
+Perceptron Neural Network:
+
+Sabse basic neural model jisme ek input layer hoti hai aur ek output layer.
+
+Sirf linearly separable problems solve kar sakta hai.
+
+Activation function: step function ya sign function.
+
+Formula: output = step(Σ(w_i * x_i) + bias)
+
+Binary Classification:
+
+Output sirf 2 values dega: Even (0) aur Odd (1)
+
+Isiliye, ek single output neuron use hota hai.
+
+Supervised Learning:
+
+Labeled dataset diya jata hai (har digit ke sath uska label - even ya odd).
+
+Network weights ko adjust karta hai error ke basis par.
+
+Weight Initialization:
+
+Weights randomly initialize hote hain training start hone se pehle.
+
+Training mein ye update hote hain using Perceptron learning rule:
+
+ini
+Copy
+Edit
+w = w + learning_rate * (target - prediction) * input
+bias = bias + learning_rate * (target - prediction)
+Epochs & Learning Rate:
+
+Epochs: Kitni baar poora data network ko dikhaya jaata hai.
+
+Learning Rate: Kitna quickly network weights ko update karta hai.
+
+Training Loop:
+
+Har sample ke liye output calculate karo, error find karo aur weights ko update karo.
+
+Prediction Phase:
+
+Naye digit ke ASCII ko binary form mein convert karo aur trained perceptron se output nikalo.
+
+Output: 0 → Even, 1 → Odd
+
+🧠 Working Steps (Flow):
+0 se 9 tak ke digits ko unke ASCII format mein convert karo.
+
+Har ASCII value ko 8-bit binary vector mein transform karo.
+
+In vectors ko input ke roop mein perceptron ko do.
+
+Even ke liye label = 0, Odd ke liye label = 1.
+
+Initialize weights and bias.
+
+Repeat for given number of epochs:
+
+Output compute karo.
+
+Error calculate karo (target - output).
+
+Weights aur bias ko update karo.
+
+Jab training complete ho jaaye:
+
+Kisi bhi test digit ka binary vector banao.
+
+Perceptron output check karo: Even or Odd.
+

@@ -1,0 +1,185 @@
+Implement Artificial Neural Network training process in Python by using Forward Propagation, Back Propagation.
+(CO2 - 33)
+
+Theory (Detailed Hinglish Point-wise):
+
+Introduction:
+
+Artificial Neural Network (ANN) ek machine learning technique hai jo human brain ke neurons ki tarah kaam karta hai.
+
+Humare practical mein hum ek basic ANN banayenge jisme Forward Propagation aur Back Propagation dono included honge.
+
+Forward propagation se output milta hai, aur backpropagation se model ki weights ko update kiya jata hai based on the error.
+
+Key Components of an ANN:
+
+Neurons: Humare network mein layers of neurons hote hain. Hum 3 layers ka use karenge: input layer, hidden layer, output layer.
+
+Weights: Har connection ke liye weight hota hai, jo neural network ka important part hai.
+
+Bias: Bias har neuron ke liye hota hai, jo activation function ke result ko shift karne mein help karta hai.
+
+Activation Function: Ye decide karta hai neuron ka output kya hoga, hum sigmoid function ka use karenge.
+
+Loss Function: Model ka error calculate karne ke liye loss function ka use hota hai. Hum yahan Mean Squared Error (MSE) use karenge.
+
+Forward Propagation:
+
+Forward propagation mein input data ko pass kiya jata hai network ke through, layer by layer.
+
+Har layer mein neurons ka weighted sum calculate hota hai aur activation function apply hota hai.
+
+Finally, output layer se predicted output milta hai.
+
+
+
+Yahan W weights hain, X input, b bias, Z weighted sum, aur A activation output hai.
+
+Backpropagation:
+
+Backpropagation ek learning algorithm hai jo weights ko adjust karta hai based on the error in predictions.
+
+Is process mein, error (predicted - actual) ko back propagate kiya jata hai network mein, aur har layer ke weights ko update kiya jata hai.
+
+Gradient Descent algorithm ka use kiya jata hai jo minimum error tak pahuchne ke liye weights ko optimize karta hai.
+
+Update Rule: 
+
+Steps in Backpropagation:
+
+Error Calculation: Pehle output layer pe error calculate hota hai, jahan actual output aur predicted output ke beech difference hota hai.
+
+Gradient Calculation: Error ke liye gradient calculate kiya jata hai, jo batata hai ki weights ka kitna adjustment hona chahiye.
+
+Weights Update: Gradient descent algorithm ka use karke weights ko update kiya jata hai taki model ka loss minimize ho.
+
+Training Process:
+
+Model ko train karte waqt multiple iterations (epochs) tak data pass hota hai aur weights repeatedly update hote hain.
+
+Har iteration mein model apni predictions ko better karta hai aur error kam karta hai.
+
+Learning Rate: Ye ek important parameter hai jo batata hai ki weights ko update karte waqt kitni adjustment ki jayegi. Agar learning rate zyada ho, to model overfit ho sakta hai, aur agar kam ho to training slow hogi.
+
+Implementation:
+
+Hum neural network ko initialize karte hain, input, hidden aur output layers ko define karte hain.
+
+Har layer mein random weights initialize hote hain, aur forward propagation ke through output milta hai.
+
+Backpropagation ke baad weights update hote hain.
+
+Iterations ke baad hum model ko train kar lete hain aur test data se predictions karte hain.
+
+Activation Function (Sigmoid):
+
+Sigmoid function ek common activation function hai jo output ko 0 aur 1 ke beech map karta hai.
+
+
+ 
+
+Ye function network ko non-linearity introduce karta hai aur prediction ko accurate banata hai.
+
+Loss Function (Mean Squared Error - MSE):
+
+MSE loss function ko minimize karte hue model apni predictions ko improve karta hai.
+
+
+
+Jitna kam MSE hoga, utna accurate model hoga.
+
+Model Evaluation:
+
+Training ke baad, model ka accuracy measure karna important hota hai. Hum test data ko input de kar model ki performance evaluate kar sakte hain.
+
+Agar model test data pe achi prediction kar raha hai, to model successfully train ho gaya hai.
+
+Conclusion:
+
+Is practical se humne Forward Propagation aur Back Propagation ka process samjha aur implement kiya.
+
+Yeh neural network ka core training mechanism hai, jisse model ko learn karne ka process diya jata hai aur weights ko optimize kiya jata hai.
+
+
+5. Write a Python Program using MLPClassifier to recognize even and odd numbers. Given numbers are in ASCII form 0 to 9.
+(CO1 - 22)
+
+Theory (Detailed Hinglish Point-wise):
+
+MLPClassifier kya hota hai?
+
+MLPClassifier ek Multi-Layer Perceptron classifier hai jo scikit-learn library mein available hota hai.
+
+Ye supervised learning algorithm hai jo backpropagation use karta hai aur classification problems solve karta hai.
+
+MLPClassifier non-linear problems ke liye kaafi powerful tool hai.
+
+Input representation (ASCII-based digit matrix)
+
+0 se 9 tak ke digits ko ek 5x3 matrix ke roop mein liya jata hai.
+
+Har matrix ko flatten karke ek 15-dimensional vector banaya jata hai.
+
+Ye vector network ka input banata hai, jisme 1 valid pixel ko show karta hai aur 0 invalid ko.
+
+Output labels - Even vs Odd
+
+Labels assign kiye jate hain:
+Even numbers (0, 2, 4, 6, 8) → 0
+Odd numbers (1, 3, 5, 7, 9) → 1
+
+MLP classifier ko training ke dauraan bataya jata hai ki input pattern kis class ka hai (0 ya 1).
+
+MLPClassifier ka structure
+
+Input layer: 15 neurons (each for one ASCII pixel)
+
+Hidden layer: Configurable (e.g. 10 neurons)
+
+Output layer: 1 neuron (binary classification)
+
+Activation function: Default is 'relu' for hidden layer and 'logistic' or 'softmax' for output.
+
+Solver: Usually 'adam' or 'sgd' (gradient descent variants)
+
+Training Process (Behind the scenes)
+
+Forward Propagation: Input -> Hidden layer -> Output layer
+
+Loss Calculation: Binary cross-entropy loss
+
+Backpropagation: Error ko backtrack karke weights ko adjust kiya jata hai
+
+Weight Update: Gradient descent ya Adam optimizer ke through weights aur biases update hote hain
+
+Ye pura process multiple iterations (epochs) tak chalta hai jab tak accuracy improve na ho jaye
+
+fit() and predict() functions
+
+fit(X_train, y_train): Model ko training data ke saath train karta hai
+
+predict(X_test): Trained model se test input ka prediction karta hai (even/odd)
+
+Why MLPClassifier is used in this practical?
+
+Ye ready-to-use neural network model hai jo backpropagation aur optimization khud handle karta hai
+
+Coding kaafi easy ho jata hai, aur performance kaafi efficient hota hai
+
+Real-world classification problems ke liye highly applicable hai
+
+Testing and Evaluation
+
+Model ko test data ke input pattern diye jate hain (ASCII form of digits)
+
+Model output deta hai 0 ya 1 → Jisse pata chalta hai ki number even hai ya odd
+
+Accuracy score bhi calculate kiya ja sakta hai using accuracy_score() from sklearn
+
+Conclusion
+
+MLPClassifier ka use karke hum ASCII-based digit inputs ko even ya odd categories mein accurately classify kar sakte hain
+
+Ye practical supervised learning, multi-layer neural networks, gradient descent, aur scikit-learn library ke important features cover karta hai
+
+

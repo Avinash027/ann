@@ -1,0 +1,74 @@
+🧠 Practical 1: Activation Functions in Neural Networks (CO1 7)
+Problem Statement:
+Write a Python program to plot a few activation functions that are used in neural networks.
+
+🔍 Theory in Hinglish (Point-wise + Detailed):
+Activation Function kya hota hai?
+
+Activation function ek mathematical function hai jo decide karta hai ki ek neuron ko activate karna hai ya nahi.
+
+Yeh function input ko process karta hai aur output deta hai jo next layer me jaata hai.
+
+Purpose of Activation Function:
+
+Neural Network ko non-linearity dena (taaki complex patterns learn kar sake).
+
+Agar activation functions na ho, toh pura network sirf ek linear function ban ke reh jaayega.
+
+Common Activation Functions jo humne plot kiye:
+
+a) Sigmoid Function:
+
+Formula: σ(x) = 1 / (1 + e^(-x))
+
+Range: 0 to 1
+
+Use: Binary classification problems
+
+Concept Used: Smooth S-curve, useful for probabilities
+
+Downside: Gradient vanishing problem (derivative chhota ho jaata hai large x ke liye)
+
+b) Tanh (Hyperbolic Tangent):
+
+Formula: tanh(x) = (e^x - e^-x) / (e^x + e^-x)
+
+Range: -1 to 1
+
+Centered around 0 (better than sigmoid)
+
+Use: Works well in hidden layers
+
+c) ReLU (Rectified Linear Unit):
+
+Formula: ReLU(x) = max(0, x)
+
+Fast and simple, mostly used in hidden layers
+
+Concept: Only activates neuron when input > 0
+
+Problem: Dying ReLU (some neurons stuck at zero)
+
+d) Leaky ReLU:
+
+Formula: x if x > 0 else αx (α=0.01)
+
+Tries to solve Dying ReLU problem by allowing a small gradient when x < 0.
+
+e) Softmax:
+
+Converts output scores to probabilities that sum to 1
+
+Mostly used in output layer of multi-class classification
+
+Why plotting is important?
+
+Visualization se samajh aata hai ki function ka shape kaisa hai aur kis range me output deta hai.
+
+Python Concepts Used:
+
+numpy for calculations
+
+matplotlib.pyplot for plotting
+
+Function definitions and linspace for graph range

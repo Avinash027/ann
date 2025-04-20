@@ -1,0 +1,92 @@
+7. Write a Python Program to implement a simple Neural Network for XOR problem.
+(CO1 - 6)
+
+Theory (Detailed Hinglish Point-wise):
+
+XOR Problem kya hota hai?
+
+XOR (Exclusive OR) ek logical operation hai jo sirf tab 1 return karta hai jab exactly ek input 1 ho.
+
+Truth table:
+
+Copy
+Edit
+0 ⊕ 0 = 0  
+0 ⊕ 1 = 1  
+1 ⊕ 0 = 1  
+1 ⊕ 1 = 0
+XOR function linearly separable nahi hota, isliye ise solve karne ke liye multi-layer neural network chahiye.
+
+Neural Network Structure used
+
+Input Layer: 2 Neurons (for 2 input bits)
+
+Hidden Layer: 2 Neurons (to handle non-linearity)
+
+Output Layer: 1 Neuron (to give final XOR output)
+
+Activation function: Sigmoid used in both layers to introduce non-linearity
+
+Sigmoid Function and its Derivative
+
+sigmoid(x) = 1 / (1 + e^(-x))
+
+Derivative (for backpropagation): sigmoid'(x) = sigmoid(x) * (1 - sigmoid(x))
+
+Ye smooth curve provide karta hai jise neurons ke output ko 0-1 range mein normalize kiya ja sakta hai
+
+Weight Initialization
+
+Weights ko random values se initialize kiya jata hai taaki training unbiased ho
+
+Bias terms bhi randomly initialize hote hain har layer ke liye
+
+Forward Propagation ka Process
+
+Hidden layer ka output nikala jata hai: sigmoid(np.dot(inputs, weights_input_hidden) + bias_hidden)
+
+Is hidden output se final output nikala jata hai using: sigmoid(np.dot(hidden_output, weights_hidden_output) + bias_output)
+
+Ye predicted output hota hai neural network ka answer for each XOR input pair
+
+Backpropagation (Learning mechanism)
+
+Prediction aur actual output ke beech ka error calculate hota hai
+
+Error ko derivative of sigmoid ke saath multiply karke gradients nikalte hain
+
+Gradients ka use karke weights aur biases ko update kiya jata hai (Gradient Descent)
+
+Learning rate decide karta hai kitna update hoga per epoch
+
+Training over Epochs
+
+Neural network ko multiple iterations (epochs) tak train kiya jata hai
+
+Har epoch ke baad weights update hote hain aur predictions improve hote hain
+
+Typically 10,000 epochs use kiye jaate hain for XOR learning
+
+Final Output (after training)
+
+Training ke baad jab test inputs diye jaate hain (0,0), (0,1), (1,0), (1,1)
+
+Neural network close to 0 or 1 results deta hai jo expected XOR output ke kareeb hota hai
+
+Accuracy improve hoti hai as the network learns proper weights
+
+Why Neural Network works for XOR?
+
+XOR linearly separable nahi hai → Single-layer perceptron fail karta hai
+
+Multi-layer (minimum 1 hidden layer) neural network with non-linear activation (sigmoid) se hum XOR ko model kar sakte hain
+
+Hidden layer decision boundaries create karta hai jisse final XOR decision possible hota hai
+
+Conclusion
+
+XOR problem ek classical test case hai neural networks ke liye
+
+Is practical mein humne sigmoid-based neural network banaya jo XOR ko solve karta hai
+
+Concepts covered: forward propagation, sigmoid function, backpropagation, weight update, multi-layer networks
